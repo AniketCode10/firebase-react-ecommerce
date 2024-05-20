@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import  { useContext } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import myContext from '../../../context/data/myContext';
-import Layout from '../../../components/layout/Layout';
+
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { FaUser, FaCartPlus } from 'react-icons/fa';
-import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from 'react-icons/ai';
+import { AiFillShopping } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 function DashboardTab() {
@@ -12,15 +12,15 @@ function DashboardTab() {
     const { mode, product, edithandle, deleteProduct, order, user } = context
 
     // console.log(product)
-    let [isOpen, setIsOpen] = useState(false)
+    // let [isOpen, setIsOpen] = useState(false)
 
-    function closeModal() {
-        setIsOpen(false)
-    }
+    // function closeModal() {
+    //     setIsOpen(false)
+    // }
 
-    function openModal() {
-        setIsOpen(true)
-    }
+    // function openModal() {
+    //     setIsOpen(true)
+    // }
 
     const add = () => {
         window.location.href = '/addproduct'

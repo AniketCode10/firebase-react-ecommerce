@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import  { useContext, useEffect, useState } from 'react'
 import Layout from '../../components/layout/Layout'
 import myContext from '../../context/data/myContext';
 import { useParams } from 'react-router';
