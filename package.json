@@ -26,6 +26,7 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
     "autoprefixer": "^10.4.19",
     "envify": "^4.1.0",
     "eslint": "^8.45.0",
