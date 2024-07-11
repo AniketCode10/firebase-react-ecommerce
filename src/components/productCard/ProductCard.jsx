@@ -2,7 +2,7 @@ import  { useContext, useEffect } from 'react'
 import myContext from '../../context/data/myContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
-import { toast } from 'react-toastify'
+import { Bounce, toast } from 'react-toastify'
 
 function ProductCard() {
     const context = useContext(myContext)
@@ -15,7 +15,17 @@ function ProductCard() {
 
     const addCart = (product)=> {
         dispatch(addToCart(product));
-        toast.success('add to cart');
+        toast.success('added to cart',{
+            position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+        });
 
     }
 

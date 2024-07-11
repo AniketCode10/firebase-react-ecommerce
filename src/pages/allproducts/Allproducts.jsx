@@ -18,7 +18,18 @@ function Allproducts() {
 
   const addCart = (product)=> {
       dispatch(addToCart(product));
-      toast.success('add to cart');
+      toast.success('add to cart', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        
+      }
+        );
 
   }
 

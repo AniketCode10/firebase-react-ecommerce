@@ -4,7 +4,7 @@ import Layout from '../../components/layout/Layout';
 import Modal from '../../components/modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCart } from '../../redux/cartSlice';
-import { toast } from 'react-toastify';
+import { Bounce, Flip, toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../fireabase/FirebaseConfig';
 import { Navigate } from 'react-router-dom';
@@ -22,7 +22,17 @@ function Cart() {
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
-    toast.success("Delete cart")
+    toast.success("Item Removed from Cart",{
+      position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+    })
   }
 
   useEffect(() => {
@@ -63,6 +73,7 @@ function Cart() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        transition:`${Flip}`
       })
     }
 
@@ -91,7 +102,15 @@ function Cart() {
       description: "for testing purpose",
       handler: function (response) {
         console.log(response)
-        toast.success('Payment Successful')
+        toast.success('Payment Successful',{position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition:`${Flip}`,})
         
         navigate('/');
         const paymentId = response.razorpay_payment_id;
@@ -135,7 +154,7 @@ function Cart() {
   }
   return (
     <Layout >
-      <div className="h-screen bg-gray-100 pt-5 mb-[60%] " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
+      <div className="min-h-screen bg-gray-100 pt-5 mb-[10%] " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 ">

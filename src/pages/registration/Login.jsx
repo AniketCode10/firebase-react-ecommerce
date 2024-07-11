@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import myContext from '../../context/data/myContext'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../fireabase/FirebaseConfig';
-import { toast } from 'react-toastify';
+import { Flip, toast } from 'react-toastify';
 import Loader from '../../components/loader/Loader';
 
 function Login() {
@@ -20,7 +20,7 @@ function Login() {
         try {
             const result = await signInWithEmailAndPassword(auth,email,password);
             toast.success("Login successful", {
-                position: "top-right",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,
@@ -28,6 +28,7 @@ function Login() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
+                transition:Flip,
               })
             localStorage.setItem('user', JSON.stringify(result))
             navigate('/')

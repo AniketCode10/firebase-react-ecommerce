@@ -53,7 +53,17 @@ function App() {
           } />
           <Route path="/*" element={<NoPage />} />
         </Routes>
-        <ToastContainer/>
+        <ToastContainer position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
       </Router>
     </MyState>
 
