@@ -7,7 +7,7 @@ import { deleteFromCart } from '../../redux/cartSlice';
 import { Bounce, Flip, toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../fireabase/FirebaseConfig';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Cart() {
@@ -55,7 +55,7 @@ transition: Bounce,
   const grandTotal = shipping + totalAmout;
   // console.log(grandTotal)
 
-  const navigate = Navigate;
+  const navigate = useNavigate();
 
   const [name, setName] = useState("")
   const [address, setAddress] = useState("");
@@ -92,6 +92,7 @@ transition: Bounce,
       )
     }
 
+    
     var options = {
       key:import.meta.env.VITE_razorpayKey,
       key_secret:import.meta.env.VITE_razorpaySecret,
@@ -102,6 +103,9 @@ transition: Bounce,
       description: "for testing purpose",
       handler: function (response) {
         console.log(response)
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
         toast.success('Payment Successful',{position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -112,7 +116,7 @@ transition: Bounce,
           theme: "light",
           transition:`${Flip}`,})
         
-        navigate('/');
+       
         const paymentId = response.razorpay_payment_id;
 
         const orderInfo = {
@@ -148,8 +152,9 @@ transition: Bounce,
 
     var pay = new window.Razorpay(options);
     pay.open();
+  
     console.log(pay)
-
+ 
 
   }
   return (

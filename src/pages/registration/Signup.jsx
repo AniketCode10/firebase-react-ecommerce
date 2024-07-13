@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import myContext from '../../context/data/myContext';
-import { toast } from 'react-toastify';
+import { Flip, toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, fireDB } from '../../fireabase/FirebaseConfig';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
@@ -43,6 +43,17 @@ function Signup() {
         } catch (error) {
             console.log(error)
             setLoading(false)
+            toast.error("Inavlid Credentials!Please Enter Correct Details", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition:Flip,
+              })
         }
     }
 

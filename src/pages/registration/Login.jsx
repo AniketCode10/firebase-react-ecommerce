@@ -37,6 +37,17 @@ function Login() {
         } catch (error) {
             console.log(error)
             setLoading(loading)
+            toast.error("Inavlid Credentials!", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition:Flip,
+              })
         }
 
     }
