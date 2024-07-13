@@ -14,8 +14,8 @@ function Cart() {
 
   const context = useContext(myContext)
   const { mode } = context;
-
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart);
   console.log(cartItems)
@@ -55,7 +55,7 @@ transition: Bounce,
   const grandTotal = shipping + totalAmout;
   // console.log(grandTotal)
 
-  const navigate = useNavigate();
+
 
   const [name, setName] = useState("")
   const [address, setAddress] = useState("");
@@ -106,7 +106,7 @@ transition: Bounce,
         setTimeout(() => {
           navigate('/');
         }, 2000);
-        
+        navigate("/");
         toast.success('Payment Successful',{position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -116,7 +116,7 @@ transition: Bounce,
           progress: undefined,
           theme: "light",
           transition:`${Flip}`,})
-          navigate("/");
+         
         
        
         const paymentId = response.razorpay_payment_id;
