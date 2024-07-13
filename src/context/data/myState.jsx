@@ -117,7 +117,7 @@ function MyState({children}) {
             await setDoc(doc(fireDB, 'products', products.id), products)
             toast.success("Product Updated successfully")
             setTimeout(() => {
-                window.location.href = '/dashbaord'
+                navigate("/dashboard")
             }, 800);
             getProductData();
             setLoading(false)
