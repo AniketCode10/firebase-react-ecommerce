@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { RxCross2 } from 'react-icons/rx'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const context = useContext(myContext);
   const {mode, toggleMode} = context;
 
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -19,7 +21,8 @@ function Navbar() {
 
   const logout = () => {
     localStorage.clear('user');
-    window.location.href = '/register'
+    // window.location.href = '/signup'
+    navigate("/login")
   }
 
   const cartItems = useSelector((state) => state.cart)
