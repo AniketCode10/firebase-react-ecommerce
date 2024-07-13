@@ -19,7 +19,7 @@ function Navbar() {
 
   const logout = () => {
     localStorage.clear('user');
-    window.location.href = '/login'
+    window.location.href = '/register'
   }
 
   const cartItems = useSelector((state) => state.cart)

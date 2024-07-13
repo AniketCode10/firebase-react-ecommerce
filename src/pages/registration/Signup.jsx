@@ -43,17 +43,17 @@ function Signup() {
         } catch (error) {
             console.log(error)
             setLoading(false)
-            toast.error("Inavlid Credentials!Please Enter Correct Details", {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition:Flip,
-              })
+            // toast.error("Inavlid Credentials!Please Enter Correct Details", {
+            //     position: "top-center",
+            //     autoClose: 2000,
+            //     hideProgressBar: true,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "colored",
+            //     transition:Flip,
+            //   })
         }
     }
 
