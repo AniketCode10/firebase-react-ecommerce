@@ -106,6 +106,7 @@ transition: Bounce,
         setTimeout(() => {
           navigate('/');
         }, 2000);
+        
         toast.success('Payment Successful',{position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -115,6 +116,7 @@ transition: Bounce,
           progress: undefined,
           theme: "light",
           transition:`${Flip}`,})
+          navigate("/");
         
        
         const paymentId = response.razorpay_payment_id;
