@@ -10,9 +10,9 @@ function MyState({children}) {
     const [mode, setMode] = useState('light');
 
     const navigate = useNavigate();
-    const redirectFunction = ()=>[
-        navigate("/dashboard")
-    ]
+    // const redirectFunction = ()=>[
+    //     navigate("/dashboard")
+    // ]
     const toggleMode = () => {
         if (mode === 'light') {
             setMode('dark');
@@ -57,7 +57,7 @@ function MyState({children}) {
             setTimeout(() => {
                 // navigate('/dashboard');
                 // window.location.href = '/dashbaord'
-                redirectFunction()
+                navigate("/dashboard")
             }, 800);
             getProductData();
             setLoading(false)
