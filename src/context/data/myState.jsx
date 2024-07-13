@@ -3,13 +3,16 @@ import MyContext from './myContext'
 import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { fireDB } from '../../fireabase/FirebaseConfig';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function MyState({children}) {
     const [mode, setMode] = useState('light');
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const redirectFunction = ()=>[
+        navigate("/dashboard")
+    ]
     const toggleMode = () => {
         if (mode === 'light') {
             setMode('dark');
@@ -53,7 +56,8 @@ function MyState({children}) {
             toast.success("Add product successfully");
             setTimeout(() => {
                 // navigate('/dashboard');
-                window.location.href = '/dashbaord'
+                // window.location.href = '/dashbaord'
+                redirectFunction()
             }, 800);
             getProductData();
             setLoading(false)

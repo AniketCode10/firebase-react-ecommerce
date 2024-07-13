@@ -23,7 +23,7 @@ import Allproducts from './pages/allproducts/Allproducts';
 function App() {
   return (
     <MyState>
-      <Router>
+     
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />
@@ -64,7 +64,7 @@ draggable
 pauseOnHover
 theme="colored"
 />
-      </Router>
+     
     </MyState>
 
   )
